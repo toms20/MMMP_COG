@@ -27,7 +27,7 @@ Usage Examples
 Create and new instance of the object
     
         
-        myCOMObject = new ArduinoCommunicationObject();
+            myCOMObject = new ArduinoCommunicationObject();
         
 
 Set the IP Address to point to the Arduino
