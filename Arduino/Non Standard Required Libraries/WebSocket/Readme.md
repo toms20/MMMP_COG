@@ -75,7 +75,6 @@ Usage Examples
           }
         }
 
-<dl><dt>See the current code [here](https://github.com/toms20/MMMP_COG/blob/master/Arduino/MMMP_CODEv2_2/MMMP_CODEv2_2.ino)</dt>
+See the current code [here](https://github.com/toms20/MMMP_COG/blob/master/Arduino/MMMP_CODEv2_2/MMMP_CODEv2_2.ino).
         
-<dt>Again, this code is a slight modification of ejeklint's [ArduinoWebsocketServer](https://github.com/ejeklint/ArduinoWebsocketServer) work. All credit should be given to ejeklint where appropriate. </dt>
-</dl>
+Again, this code is a slight modification of ejeklint's [ArduinoWebsocketServer](https://github.com/ejeklint/ArduinoWebsocketServer) work. All credit should be given to ejeklint where appropriate.
