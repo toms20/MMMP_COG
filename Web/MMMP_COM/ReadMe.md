@@ -24,7 +24,7 @@ Usage Examples
 <dl>
 <dt>Methods</dt>
 </dl>
-Create and new instance of the object
+Create a new instance of the object
 
         myCOMObject = new ArduinoCommunicationObject();
 
@@ -32,6 +32,7 @@ Set the IP Address to point to the Arduino
     
         
         myCOMObject.setIPAddress('192.168.1.1');
+        //Example IP Address
         
 
 Set the communication port
@@ -59,6 +60,9 @@ Destroy Web Socket (connection)
     
         
         myCOMObject.closeWebSocket();
+
+
+
         
 <dl>
 <dt>Arduino Pin Interaction Methods</dt>
@@ -82,6 +86,9 @@ Sends, and sets, an Arduino's digital pin to a given value
         //Where:
         //value = 0 | 1 for non PWM pins or 0 - 255 for PWM capable pins
         //type = 0 for digital pin | 1 for analog pin
+
+
+
         
 <dl>
 <dt>Properties</dt>
@@ -96,7 +103,10 @@ Set debugging logs ON/OFF
     
         
         (boolean) myCOMObject.isDebugging
-        
+ 
+
+
+
 <dl>
 <dt>Available Callbacks</dt>
 </dl>
@@ -106,6 +116,9 @@ Set debugging logs ON/OFF
         myCOMObject.cb_OnError = yourFunction
         myCOMObject.cb_OnMessage = yourFunction
         myCOMObject.cb_OnParsedArduinoData = yourFunction
+  
+
+
         
 <dl>
 <dt>Advanced Methods</dt>
