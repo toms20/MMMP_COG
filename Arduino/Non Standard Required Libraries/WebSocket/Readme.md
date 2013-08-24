@@ -31,7 +31,6 @@ Usage Examples
         WebSocket wsServer;
 
         //Implement callback methods
-
         void onConnect(WebSocket &socket) {
           Serial.println("onConnect called");
         }
@@ -53,8 +52,8 @@ Usage Examples
         void onServeFileRequested(WebSocket &socket, EthernetClient client, char *file) { 
           //will be called when the shield encounters an HTTP GET request
           //'file' is the requested file and can be queried for on the SD card then sent to the client. 
-          //See the current code [here](https://github.com/toms20/MMMP_COG/blob/master/Arduino/MMMP_CODEv2_2/MMMP_CODEv2_2.ino)
         }
+        //Done implementing callbacks
 
         void setup() {
           Ethernet.begin(mac, ip);
@@ -76,6 +75,7 @@ Usage Examples
           }
         }
 
-
+<dl><dt>See the current code [here](https://github.com/toms20/MMMP_COG/blob/master/Arduino/MMMP_CODEv2_2/MMMP_CODEv2_2.ino)</dt>
         
-Again, this code is a slight modification of ejeklint's [ArduinoWebsocketServer](https://github.com/ejeklint/ArduinoWebsocketServer) work. All credit should be given to ejeklint where appropriate. 
+<dt>Again, this code is a slight modification of ejeklint's [ArduinoWebsocketServer](https://github.com/ejeklint/ArduinoWebsocketServer) work. All credit should be given to ejeklint where appropriate. </dt>
+</dl>
