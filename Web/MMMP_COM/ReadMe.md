@@ -24,7 +24,7 @@
         for individual pin listening.
 
     Usage Examples:
-    ```JavaScript
+    ```javascript
                 ** Methods **
     //Create and new instance of the object
     myCOMObject = new ArduinoCommunicationObject();
