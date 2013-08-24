@@ -24,11 +24,9 @@ Usage Examples
 <dl>
 <dt>Methods</dt>
 <dd>
-Create and new instance of the object
-    
-        
-            myCOMObject = new ArduinoCommunicationObject();
-        
+Create and new instance of the object\n
+
+        myCOMObject = new ArduinoCommunicationObject();
 
 Set the IP Address to point to the Arduino
     
@@ -63,7 +61,7 @@ Destroy Web Socket (connection)
         myCOMObject.closeWebSocket();
         
 </dd>
-<dl>Arduino Pin Interaction Methods</dl>
+<dt>Arduino Pin Interaction Methods</dt>
 <dd>
 Starts continuous polling of an Arduino's pin
     
