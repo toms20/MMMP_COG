@@ -25,5 +25,5 @@ Screen Shot
 
 ![screenshot](/screenshotMobile.png)
 
-Samsung Galaxy template is from EJIK 
+Samsung Galaxy template is by EJIK 
 
