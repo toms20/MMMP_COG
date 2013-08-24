@@ -25,102 +25,102 @@ Usage Examples
 <dt>Methods</dt>
 Create and new instance of the object
     
-    ```
-    myCOMObject = new ArduinoCommunicationObject();
-    ```
-    
+        ```
+        myCOMObject = new ArduinoCommunicationObject();
+        ```
+
 Set the IP Address to point to the Arduino
     
-    ```
-    myCOMObject.setIPAddress('192.168.1.1');
-    ```
+        ```
+        myCOMObject.setIPAddress('192.168.1.1');
+        ```
 
 Set the communication port
     
-    ```
-    myCOMObject.setPort(80);
-    ```
+        ```
+        myCOMObject.setPort(80);
+        ```
 Initiate Web Socket (connection)
     
-    ```
-    myCOMObject.initWebSocket();
-    ```
+        ```
+        myCOMObject.initWebSocket();
+        ```
 
 Register/unregister for pin callbacks
     
-    ```
-    myCOMObject.registerPinCallback(pin, function);
-    myCOMObject.unregisterPinCallback(pin);
-    //Where:
-    //pin = (int) any pin on the arduino
-    //function = any function in your .js code
-    ```
+        ```
+        myCOMObject.registerPinCallback(pin, function);
+        myCOMObject.unregisterPinCallback(pin);
+        //Where:
+        //pin = (int) any pin on the arduino
+        //function = any function in your .js code
+        ```
 
 Destroy Web Socket (connection)
     
-    ```
-    myCOMObject.closeWebSocket();
-    ```
+        ```
+        myCOMObject.closeWebSocket();
+        ```
 
 <dl>Arduino Pin Interaction Methods</dl>
 
 Starts continuous polling of an Arduino's pin
     
-    ```
-    myCOMObject.startListeningToPin(type, pin);
-    ```
+        ```
+        myCOMObject.startListeningToPin(type, pin);
+        ```
 
 Stops the given pin from being polled
     
-    ```
-    myCOMObject.stopListeningToPin(type, pin);
-    ```
+        ```
+        myCOMObject.stopListeningToPin(type, pin);
+        ```
 
 Sends, and sets, an Arduino's digital pin to a given value
     
-    ```
-    myCOMObject.sendValueToPin(pin, value);
-    //Where:
-    //value = 0 | 1 for non PWM pins or 0 - 255 for PWM capable pins
-    //type = 0 for digital pin | 1 for analog pin
-    ```
+        ```
+        myCOMObject.sendValueToPin(pin, value);
+        //Where:
+        //value = 0 | 1 for non PWM pins or 0 - 255 for PWM capable pins
+        //type = 0 for digital pin | 1 for analog pin
+        ```
 
 <dt>Properties</dt>
 Check connection status
     
-    ```
-    (boolean) myCOMObject.isConnected
-    ```
+        ```
+        (boolean) myCOMObject.isConnected
+        ```
 
 Set debugging logs ON/OFF
     
-    ```
-    (boolean) myCOMObject.isDebugging
-    ```
+        ```
+        (boolean) myCOMObject.isDebugging
+        ```
 
 <dt>Available Callbacks</dt>
     
-    ```
-    myCOMObject.cb_OnOpened = yourFunction
-    myCOMObject.cb_OnClosed = yourFunction
-    myCOMObject.cb_OnError = yourFunction
-    myCOMObject.cb_OnMessage = yourFunction
-    myCOMObject.cb_OnParsedArduinoData = yourFunction
-    ```
+        ```
+        myCOMObject.cb_OnOpened = yourFunction
+        myCOMObject.cb_OnClosed = yourFunction
+        myCOMObject.cb_OnError = yourFunction
+        myCOMObject.cb_OnMessage = yourFunction
+        myCOMObject.cb_OnParsedArduinoData = yourFunction
+        ```
 
 <dt>Advanced Methods</dt>
 Parse the incomming Arduino data manually
     
-    ```
-    myCOMObject.requestManualParsing()
-    //NOTE - In order to receive the raw data you must register cb_OnMessage with a callback.
-    ```
+        ```
+        myCOMObject.requestManualParsing()
+        //NOTE - In order to receive the raw data you must register cb_OnMessage with a callback.
+        ```
 
 Change the COM rate 
     
-    ```
-    myCOMObject.changeComRate(rateInMilliseconds);
-    //Valid rates 50ms - 2000ms, values outside this range will be trimmed to these values
-    ```
+        ```
+        myCOMObject.changeComRate(rateInMilliseconds);
+        //Valid rates 50ms - 2000ms, values outside this range will be trimmed to these values
+        ```
 
 </dl>
