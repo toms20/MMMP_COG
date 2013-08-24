@@ -1,24 +1,28 @@
-ARDUINO COMMUNICATION OBJECT  
+ARDUINO COMMUNICATION OBJECT 
+============================= 
 
-Abstract:
+Abstract
+--------
 This object is used to set up and maintain a websocket between the clients browser and the arduino.
 
 ** NOTE ** 
-For this object to work properly, the Arduino must implement the custom WebSocket Library.
+For this object to work properly, the Arduino must implement this [custom WebSocket Library]{https://github.com/toms20/MMMP_COG/tree/master/Arduino/Non%20Standard%20Required%20Libraries/WebSocket}.
 
-Description:
+Description
+------------
 This object provides convienence methods for
-- creating a websocket
-- closing the websocket
-- parsing recieved data from the arduino
-- encoding data to be sent to the arduino 
-- changing arduino/browser communication rate
-- registering callback methods for individual pin listening.
+* creating a websocket
+* closing the websocket
+* parsing recieved data from the arduino
+* encoding data to be sent to the arduino 
+* changing arduino/browser communication rate
+* registering callback methods for individual pin listening.
 
 
-Usage Examples:
-
-** Methods **
+Usage Examples
+---------------
+<dl>
+<dt>Methods</dt>
 Create and new instance of the object
     
     myCOMObject = new ArduinoCommunicationObject();
@@ -47,7 +51,7 @@ Destroy Web Socket (connection)
     
     myCOMObject.closeWebSocket();
 
-vv Arduino Pin Interaction Methods vv
+<dl>Arduino Pin Interaction Methods</dl>
 
 Starts continuous polling of an Arduino's pin
     
@@ -64,8 +68,7 @@ Sends, and sets, an Arduino's digital pin to a given value
     //value = 0 | 1 for non PWM pins or 0 - 255 for PWM capable pins
     //type = 0 for digital pin | 1 for analog pin
 
-
-** Properties **
+<dt>Properties</dt>
 Check connection status
     
     (boolean) myCOMObject.isConnected
@@ -74,7 +77,7 @@ Set debugging logs ON/OFF
     
     (boolean) myCOMObject.isDebugging
 
-** Available Callbacks **
+<dt>Available Callbacks</dt>
     
     myCOMObject.cb_OnOpened = yourFunction
     myCOMObject.cb_OnClosed = yourFunction
@@ -82,7 +85,7 @@ Set debugging logs ON/OFF
     myCOMObject.cb_OnMessage = yourFunction
     myCOMObject.cb_OnParsedArduinoData = yourFunction
 
-** Advanced Methods **
+<dt>Advanced Methods</dt>
 Parse the incomming Arduino data manually
     
     myCOMObject.requestManualParsing()
@@ -92,3 +95,5 @@ Change the COM rate
     
     myCOMObject.changeComRate(rateInMilliseconds);
     //Valid rates 50ms - 2000ms, values outside this range will be trimmed to these values
+
+</dl>
