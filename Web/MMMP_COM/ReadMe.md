@@ -23,8 +23,8 @@ Usage Examples
 ---------------
 <dl>
 <dt>Methods</dt>
-<dd>
-Create and new instance of the object\n
+</dl>
+Create and new instance of the object
 
         myCOMObject = new ArduinoCommunicationObject();
 
@@ -60,9 +60,9 @@ Destroy Web Socket (connection)
         
         myCOMObject.closeWebSocket();
         
-</dd>
+<dl>
 <dt>Arduino Pin Interaction Methods</dt>
-<dd>
+</dl>
 Starts continuous polling of an Arduino's pin
     
         
@@ -83,9 +83,9 @@ Sends, and sets, an Arduino's digital pin to a given value
         //value = 0 | 1 for non PWM pins or 0 - 255 for PWM capable pins
         //type = 0 for digital pin | 1 for analog pin
         
-</dd>
+<dl>
 <dt>Properties</dt>
-<dd>
+</dl>
 Check connection status
     
         
@@ -97,9 +97,9 @@ Set debugging logs ON/OFF
         
         (boolean) myCOMObject.isDebugging
         
-</dd>
+<dl>
 <dt>Available Callbacks</dt>
-<dd>
+</dl>
         
         myCOMObject.cb_OnOpened = yourFunction
         myCOMObject.cb_OnClosed = yourFunction
@@ -107,9 +107,9 @@ Set debugging logs ON/OFF
         myCOMObject.cb_OnMessage = yourFunction
         myCOMObject.cb_OnParsedArduinoData = yourFunction
         
-</dd>
+<dl>
 <dt>Advanced Methods</dt>
-<dd>
+</dl>
 Parse the incomming Arduino data manually
     
         
@@ -123,5 +123,4 @@ Change the COM rate
         myCOMObject.changeComRate(rateInMilliseconds);
         //Valid rates 50ms - 2000ms, values outside this range will be trimmed to these values
         
-</dd>
-</dl>
+
