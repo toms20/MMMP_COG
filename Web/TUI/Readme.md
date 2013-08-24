@@ -23,5 +23,7 @@ Semi-Live Example
 Screen Shot
 ---------------
 
-![screenshot](/screenshot.png)
+![screenshot](/screenshotMobile.png)
+
+Samsung Galaxy template is from EJIK 
 
