@@ -7,5 +7,6 @@ Welcome to the root directory for the Martha Morehouse Medical Pavilion (MMMP) -
 
 This Project is hosted by The Ohio State University and satisfies the senior thesis requirement for graduating ME, BME and CSE majors
 
-What you will find here?
--The main repository for everything code/application related to the MMMP Scale Project.
+This repository contains all the code related to the MMMP Scale Project.
+
+You can find the documentation [here](http://mmmp.btcoding.com/index.html).
