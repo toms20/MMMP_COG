@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<style>
+		/* Simple Styling - Keep it looking good */
+		body, html {
+			margin:0px;
+			padding:0px;
+			width: 100%;
+			background:#535353;
+			height:100%;
+			font-family:Lucida Grande;
+			text-align: center;
+			box-shadow: 0px 0px 20px #000 inset;
+		}
+		button {
+			height:30%;
+			width:100%;
+			margin-bottom:4%;
+			font-size: 15px;
+			color: #222;
+		}
+		button:hover {
+			background-color: #f7f7f7;
+			box-shadow: 0px 0px 25px #888;
+		}
+		#splashContainer {
+			height:94%;
+		}
+		#buttonContainer {
+			height:86%;
+			-webkit-transition: left 5s;
+			-Moz-transition: left 5s;
+			-ms-transition: left 5s;
+			-o-transition: left 5s;
+			transition: left 5s;
+		}
+		#titleMessage {
+			padding-top: 2%;
+			display: block; text-decoration: none;
+			font: 75px Helvetica, Arial, Sans-Serif; letter-spacing: 0px;  
+			text-align: center;
+			color: #ccc; text-shadow: 0px 3px 8px #2a2a2a;
+		}
+		#subMessage {
+			text-align: center;
+			font: 22px Tahoma, Helvetica, Arial, Sans-Serif;
+			color: #222; text-shadow: 0px 1px 2px #777777;
+		}
+		.btnHolder {
+			display: inline-block;
+			height:89%;
+			width:35%;
+			padding:3%;
+		}
+		.details {
+			text-align: left;
+			font: 22px Tahoma, Helvetica, Arial, Sans-Serif;
+			color: #222; text-shadow: 0px 1px 2px #777777;
+		}
+		#loadingContainer {
+			height:0%;
+			width:100%;
+			-webkit-transition: opacity 1.s linear;
+			-Moz-transition: opacity 1.5s linear;
+			-ms-transition: opacity 1.5s linear;
+			-o-transition: opacity 1.5s linear;
+			transition: opacity 1.5s linear;
+		}
+		.hidden {
+			opacity: 0;
+		}
+		.slideOut {
+			position: relative;
+			left:-10000px;
+		}
+		#mainProgressBar {
+			margin-top:10%;
+			margin-bottom:2%;
+			display: none;
+			width:35%;
+		}
+		#loadingInfo{
+			display: none;
+			font: 18px Tahoma, Helvetica, Arial, Sans-Serif;
+			color: #222; text-shadow: 0px 1px 2px #777777;
+		}
+ 	</style>
+
+	<script>
+		window.onload = function () {init()};
+
+		var fullySupported = ['htmlf.html', 'cssf.css', 'comf.js', 'jsf.js'];
+		var firefox = ['htmlf.html', 'cssf.css', 'coml.js', 'jsf.js'];
+		var TUIfull = ['htmlt.html', 'csst.css', 'coml.js'];
+		var scriptCount = 0;
+		var analysisCount = 0;
+		var	hasWorkers = false;			//Web Workers (async threads)
+		var	hasSockets = false;			//Web Sockets - if they don't support this too bad
+		var	hasWorkerSockets = false;	//Web Sockets from within Web Workers
+		var	hasTouchEvents = false; 	//Tablets etc...
+		
+		function init() {
+			hasSockets = testSockets();
+
+			if(hasSockets) {
+				hasTouchEvents = testTouchEvents();
+				testWorkers(); // This isn't fired inline so chill out
+			} else {
+				//Tell them to update their shitty browser...
+			}
+		}
+
+		function testTouchEvents() {
+			analysisCount++;
+			analysisEnded();
+			return !!('ontouchstart' in window) || !!('onmsgesturechange' in window) || !!('msmaxtouchpoints' in window);
+		}
+
+		function testSockets() {
+			analysisCount++;
+			analysisEnded();
+			return ('WebSocket' in window) || ('Websocket' in window) || ('MozWebSocket' in window);
+		}
+
+		function testWorkers() {
+			if('Worker' in window) {
+				hasWorkers = true;
+				try {
+				testWorker = new Worker('wwstest.js');
+				testWorker.addEventListener('message', function(e) {
+					hasWorkerSockets = e.data;
+					// alert(e.data);
+					testWorker.terminate();
+					analysisCount++;
+					analysisEnded();
+				});
+				} catch(e) {
+					//cache most likely not enabled...
+					// alert('enable your cache fool so i can use web workers');
+					analysisCount++;
+					analysisEnded();
+				}	
+			} else {
+				analysisCount++;
+				analysisEnded();
+				return 0;
+			}
+		}
+
+		function analysisEnded() {
+			if(analysisCount == 3) {
+				//Set progress bar to finished
+				//enable UI selection
+				// alert("Touch:"+hasTouchEvents+" WebSockets:"+hasSockets+" WebWorkers:"+hasWorkers+" WorkerSockets:"+hasWorkerSockets);
+			}
+		}
+
+		function loadGUI() {
+			console.log('GUI button clicked');
+			switchToLoadingLayout('Graphical');
+			if(hasWorkerSockets) retreiveScriptArray(fullySupported, true);
+			else retreiveScriptArray(firefox, true);
+		}
+
+		function loadTUI() {
+			console.log('TUI button clicked');
+			switchToLoadingLayout('Text Based');
+		}
+
+		function switchToLoadingLayout(UI) {
+			document.getElementById('buttonContainer').className = 'slideOut';
+			window.setTimeout(function(){popLoading(UI)}, 500);
+		}
+		function popLoading(UI) {
+			document.getElementById('subMessage').innerHTML = 'Please wait while the '+UI+' Layout is loaded&hellip;';
+			document.getElementById('buttonContainer').style.display = 'none';
+			document.getElementById('loadingContainer').style.height = '86%';
+			document.getElementById('mainProgressBar').style.display = 'inline-block';
+			document.getElementById('loadingInfo').style.display = 'block';
+			window.setTimeout(document.getElementById('loadingContainer').className = '', 500);
+		}
+		
+		
+		function retreiveScriptArray(array, isFull) {
+			var cArray;
+			var type;
+			var full; 
+			if(array == null) {
+				//The on load ended called us...
+				if(cArray.length > scriptCount) {
+					var file = JSON.stringify(cArray[scriptCount]);
+					if(file.indexOf('.html') >= 0) type = 0;
+					else if(file.indexOf('.js') >= 0) type = 1;
+					else if(file.indexOf('.css') >= 0) type = 2;
+					getScript(file, type);
+				} else {
+					document.getElementById('splashContainer').className = 'slideOut';
+					document.getElementById('weighToolPageContainer').className = '';
+					if(full) {
+						initWeighToolPage();
+					}
+				}
+			} else {
+				full = isFull;
+				cArray = array;
+				var file = JSON.stringify(cArray[0]);
+				if(file.indexOf('.html') >= 0) type = 0;
+				else if(file.indexOf('.js') >= 0) type = 1;
+				else if(file.indexOf('.css') >= 0) type = 2;
+				if(array.length > 0) getScript(file, type);
+			}
+		}
+
+		function getScript(file, type) {
+			scriptCount++;
+			console.log('getGraphicalUI called');
+			var client = getAJAXObject();
+			progressBar = document.getElementById('mainProgressBar');
+			myInfo = document.getElementById('loadingInfo');
+			// client.open('GET', 'weighToolPage.js', true);
+			client.open('GET', file, true);
+			client.onprogress = function(pe) {
+				if(pe.lengthComputable) {
+					progressBar.max = pe.total;
+				}
+				progressBar.value = pe.loaded;
+				myInfo.innerHTML = 'Loading '+file+' - '+(pe.loaded).toFixed(0)+' / '+(pe.total).toFixed(0);
+			}
+			client.onloadend = function(pe) {
+				progressBar.value = pe.loaded;
+				if(type == 0) {
+					var h = document.createElement('div');
+					h.type = 'text/html';
+					h.innerHTML = client.responseText;
+					var x = document.getElementById('weighToolPageContainer')[0].appendChild(h);
+				}
+				else if(type == 1) {
+					var s = document.createElement('script');
+					s.type = 'text/javascript';
+					s.innerHTML = client.responseText;
+					var x = document.getElementsByTagName('script')[0];
+					x.parentNode.insertBefore(s, x);
+				}
+				else if(type == 2) {
+					var c = document.createElement('style');
+					c.type = 'text/css';
+					c.innerHTML = client.responseText;
+					var x = document.getElementsByTagName('style')[0];
+					x.parentNode.insertBefore(c, x);
+				}
+				retreiveScriptArray(null, null);
+			}
+			client.send();
+		}
+		function getAJAXObject () {
+			var xmlhttp;
+			if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+			  xmlhttp=new XMLHttpRequest();
+			}
+			else {// code for IE6, IE5
+			  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+			 }
+			 return xmlhttp;
+		}
+	</script>
+
+</head>
+
+<body>
+	<div id='splashContainer'>
+	<div id='titleMessage'>MMMP Scale Tool</div>
+	<div id='subMessage'>Please select the interface you wish to load</div>
+	<div id='buttonContainer'>
+		<div class='btnHolder'><button type='button' id='btnTUI' onclick='loadTUI(this)'>Load Text-Based UI</button><div class='details'>&bull; Loads Quickly</br>&bull; Fully Functional</br>&bull; More Text and Less Graphics</br></div>
+		</div>
+		<div class='btnHolder'><button type='button' id='btnGUI' onclick='loadGUI(this)'>Load Graphical UI</button>
+			<div class='details'>&bull; Easy to understand</br>&bull; Graphical Data</br>&bull; Takes a Couple Minutes to Load</br></div>
+		</div>
+	</div>
+	<div id='loadingContainer' class='hidden'>
+		<progress id='mainProgressBar'></progress>
+		<div id='loadingInfo'> this is the loading info </div>
+	</div>
+	</div>
+	<div id='weighToolPageContainer' class='hidden'>
+	</div>
+</body>
+
+</html>

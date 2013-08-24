@@ -1,0 +1,334 @@
+html, body {
+	padding:0px;
+	margin:0px;
+	width:100%;
+	-webkit-user-select:none;
+	-moz-user-select:none;
+	-ms-user-select:none;
+	-o-user-select:none;
+}
+
+body {
+	background: #f5f5f5;
+	font: bold 1.2em lucida Grande;
+}
+
+#headerToolbarHolder {
+	width:100%;
+	height:7em;
+	background:#5f5f5f;
+	padding-top:0px;
+	text-align: center;
+	border-bottom:1px solid #323232;
+	box-shadow: 0px 2px 15px 4px #535353;
+	font:18px Lucida Grande;
+	position: fixed;
+	top:0px;
+	left:0px;
+	z-index: 9999;
+	overflow-x: scroll; 
+	overflow-y: hidden;
+}
+
+#controlsScroller {
+	/*min-width:50em;*/
+}
+
+.headerButton {
+	width:12.35em;
+	height:6.3em;
+	margin:.3em;
+	font:bold .97em lucida grande;
+}
+
+.headerButton:hover {
+	background-color:#f2f2f2;
+}
+
+#loadCellInfoHolder {
+	height:auto;
+	margin:2%;
+	overflow: auto;
+	text-align: center;
+}
+
+.horzQHolder {
+	height:50%;
+	width:100%;
+	display: block;
+}
+
+.horzQHolder > div{
+	display: inline-block;
+}
+
+.qHolder {
+	width:97.7%;
+	min-width:27.7em;
+	margin:.3em;
+	height:100%;
+	padding:.3em;
+	/*background: #949494;*/
+	text-align: left;
+	/*border:1px dashed grey;*/
+	box-shadow: 0px 0px 3px grey;
+	border:1px dashed #c3c3c3;
+}
+
+.cellLoad {
+	width:100%;
+	margin: 3em 0em 1em 0em;
+	height:100%;
+}
+
+.wheelLoad {
+	width: 100%;
+	margin: 1em 0em 3em 0em;
+	height:100%;
+	display:none;
+}
+
+.cellLoad > div {
+	display: inline-block;
+	margin: 5px;
+}
+
+.wheelLoad > div{
+	display: inline-block;
+	margin:5px;
+}
+
+.qTitle {
+	width:100%;
+	text-align: center;
+}
+
+.cellLoadTitle {
+	width:14%;
+}
+
+.wheelLoadTitle {
+	width:14%;
+}
+
+.locationHolder {
+	width:100%;
+	margin-left:auto;
+	margin-right:auto;
+	/* Delete this rule to show the location selectors */
+	display: none;
+}
+
+table {
+	width:75%;
+	min-width:28em;
+	text-align: center;
+	padding-right: 6%;
+	padding-left:4%;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+.locationStatus {
+	height:1.5em;
+	width:1.5em;
+	border-radius: 1em;
+	font:bold 2em symbola;
+	border:1px solid black;
+	background: #dd8989; /* Completed */
+	/*background: #89dd89; /* Not Completed */
+}
+
+.extraInfoHolder {
+	width:96%;
+	min-width:27.7em;
+	margin:2%;
+	text-align: center;
+}
+
+.distroBarHolder {
+	width:100%;
+}
+
+.distroBarHolder > div {
+	display: inline-block;
+}
+
+.distroInfo {
+	height:7.5em;
+	margin:.5%;
+	padding:1%;
+	box-shadow: 0px 0px 3px grey;
+	margin-bottom:3%;
+	border:1px dashed #c3c3c3;
+}
+
+.barText {
+ 	width:9.75%;
+ 	text-align: center;
+}
+
+.comSection > div {
+	display: block;
+}
+
+.comSection {
+	display: inline-block;
+	width:29.75%;
+	min-width:9em;
+	height:7.5em;
+	margin:.5%;
+	padding:1%;
+	margin-top:0px;
+	box-shadow: 0px 0px 3px grey;
+	margin-bottom:3%;
+	border:1px dashed #c3c3c3;
+}
+
+.comVal {
+	padding:4%;
+	margin-left:6%;
+	font:3.5em lucida Grande;
+	color: #a3f3c3; text-shadow: 0px 0px 5px #000;
+}
+
+#weightInfoHolder {
+	height:100%;
+	width:95%;
+	margin:2.5%;
+	/*background: grey;*/
+	padding-top:6.5em;
+	margin-bottom:5%;
+	text-align: center;
+}
+
+.barHolder {
+	height:35%;
+	width:95.5%;
+	margin:2%;
+	position: relative;
+	background: #737373;
+	box-shadow: 0px 0px 10px #000 inset;
+	border-radius: 15px;
+	border: 1px solid black;
+}
+
+.barVal {
+	display: block;
+	position: relative;
+	top:0%;
+	overflow: hidden;
+	margin:.6%;
+	border-radius: 10px;
+	text-align: center;
+	box-shadow: 0px 0px 20px #fff inset;
+	border: 1px solid white;
+}
+
+.barAnimated {
+	-webkit-transition: width .25s, left .25s, background .25s;
+	-Moz-transition: width .25s, left .25s;
+	-ms-transition: width .25s, left .25s;
+	-o-transition: width .25s, left .25s;
+	transition: width .25s, left .25s;
+}
+
+#weightBarVal {
+	background: #80baff;
+	min-width:10%;
+	height:100%;
+}
+
+#wheelBarValQ1 {
+	background: #36baff;
+	min-width:15%;
+	height:100%;
+}
+#loadBarValQ1 {
+	background: #36baff;
+	min-width:15%;
+	height:100%;
+}
+#wheelBarValQ2 {
+	background: #83cc63;
+	min-width:15%;
+	height:100%;
+}
+#loadBarValQ2 {
+	background: #83cc63;
+	min-width:15%;
+	height:100%;
+}
+#wheelBarValQ3 {
+	background: #FF8656;
+	min-width:15%;
+	height:100%;
+}
+#loadBarValQ3 {
+	background: #FF8656;
+	min-width:15%;
+	height:100%;
+}
+#wheelBarValQ4 {
+	background: #BA76FF;
+	min-width:15%;
+	height:100%;
+}
+#loadBarValQ4 {
+	background: #BA76FF;
+	min-width:15%;
+	height:100%;
+}
+
+#distroBarValFB {
+	background: #60bb99;
+	width:10%;
+	height:100%;
+	min-width:60px;
+}
+
+#distroBarValLR {
+	background: #60bb99;
+	width:10%;
+	height:100%;
+	min-width:60px;
+}
+
+.valText {
+	height:100%;
+	margin:.1em;
+	font: bold 1.3em lucida grande;
+	color:#232323;
+}
+
+.cellLoadBar {
+	height:20%;
+	width:82%;
+	vertical-align: middle;
+}
+
+.wheelLoadBar {
+	height:20%;
+	width:82%;
+	vertical-align: middle;
+}
+
+#weightHorzHolder {
+	margin-top:-1%;
+}
+
+.selector {
+	height:2em;
+	min-width:4em;
+	width:45%;
+	font:bold 1.8em lucida Grande;
+	text-align: center;
+}
+
+
+
+
+
+
+
+

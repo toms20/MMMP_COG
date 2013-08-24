@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel='stylesheet' href='weighToolPage.css'>
+		<script src='weighToolPageSamp.js'></script>
+	</head>
+
+	<body>
+		<!-- <div id='header'>
+			<div id='headerLeft'>
+				<div id='toggleInfo' onclick='toggleConnectionMenu(this)'>Connection Info</div>
+			</div>
+
+			<div id='headerTitle'>MMMP</div>
+			<div id='headerSettings' onclick='toggleSettingsMenu(this)'>Settings</div>
+		</div> -->
+
+		<!-- <div id='DDM_Holder'>
+			<div id='CDDM_Container'></div>
+			<div id='headerMenuSpacer'></div>
+			<div id='CDDM_Wrapper'></div>
+		</div>
+
+		<div id='SDDM_Container'>
+			<div id='headerMenuSpacer'></div>
+			<div id='SDDM_Wrapper'></div>
+		</div> -->
+
+		<!-- <div id='extControlsHolder'>
+			<button id='btn' class='extControlsButton toolBarSubButton'>Poll ADC</button>
+			<button id='btn' class='extControlsButton toolBarSubButton'>Poll Accel 1</button>
+			<button id='btn' class='extControlsButton toolBarSubButton'>Poll Accel 2</button>
+			<button id='btn' class='extControlsButton toolBarSubButton'>Poll Pot</button>
+			<button id='btn' class='extControlsButton toolBarSubButton '>Actuator Direction</button>
+			<button id='btn' class='extControlsButton toolBarSubButton'>Actuator Power</button>
+		</div> -->
+
+		<!-- <div id='consoleHolder'>
+			<div id='consoleTableWrapper'>
+			<table id='consoleTable'>
+				<th colspan='3'>Arduino - Client Console</th>
+				<tr>
+					<td id='col1Header' class='col1'>From</td>
+					<td id='col2Header' class='col2'>Message</td>
+					<td id='col3Header' class='col3'>Log #</td>
+				</tr>
+				<tr>
+					<td class='col1'>Arduino Says:</td>
+					<td class='col2'>Digital Pin 5 -> HIGH</td>
+					<td class='col3'>35</td>
+				</tr>
+				
+			</table>
+			</div>
+			<div id='sendContainer'>
+				<input id='sendText' type='text'>
+				<button id='btnSendMessage'>Send</button>
+			</div>
+		</div> -->
+        <!-- <div id='socketControlToolbar'>
+            <button id='btnSocketOpen' class='toolBarMainButton comButton'>Initiate Web Socket</button>
+            <div id='comSliderBarContainer'>
+                <div id='comSliderBar'></div>
+                <div id='comSliderBarHandle'></div>
+            </div>
+            <button id='btnSocketClose' class='toolBarMainButton comButton'>Terminate Web Socket</button>
+        </div> -->
+		<div id='headerToolbarHolder'>
+			<button id='toolBarButtonOne' onclick='btnHelpClicked(this)' class='toolBarSubButton'>Help</button>
+			<button id='toolBarButtonTwo' onclick='btnConnectClicked(this)' class='toolBarMainButton'>Connect</button>
+			<div id='radio' class='unitRadio toolBarSubDisplay'>
+				<input type='radio' id='radioLB' onchange='toggledPounds(this)' checked='checked' name='radio' /><label for='radioLB'>lb</label>
+				<input type='radio' id='radioKG' onchange='toggledKilograms(this)' name='radio'/><label for='radioKG'>kg</label>
+			</div>
+			<div class='toolBarMainDisplay' id='toolBarDisplayMain'>000.0</div>
+			<div class='toolBarSubDisplay' id='toolBarDisplayRight'>+/- .5lb</div>
+			<button id='toolBarButtonThree' onclick='btnWeighClicked(this)' class='toolBarMainButton'>Weigh</button>
+			<button id='toolBarButtonFour' onclick='btnTareClicked(this)' class='toolBarSubButton'>Tare</button>
+		</div>
+		<div id='mainVisualHolder'>
+			<div id='scaleVisualHolder'>
+				<span id='scaleVisualSpan'></span>
+			</div>
+		</div>
+
+		<div id='sliderBarContainer'>
+			<div id='sliderBar'></div>
+            <div id='sliderBarHandle'></div>
+		</div>
+		<div id='wheelLocationEntry'>
+
+		</div>
+		<div id='detailedContentContainer'>
+		<div id='detailedContentHolder'>
+			<h3 id="distributionInfoSection" class='detailedSectionTitle'>Weight Distribution Information</h3>
+			<div  id='detailedDistributionInfoContainer'>
+				<div class='quadInfoHolder topQuad' id='quad4and1Holder'>&nbsp;
+                    <table class="center" id='wheelLocationTable'>
+            <tr>
+                <th colspan="5">
+                    Chair Location on the Scale
+                </th>
+            </tr>
+            <tr>
+                <td>
+                <tr>
+                    <!-- Autofocus automatically drags the cursor here -->
+                    <td class="xYLocationTable_Col1" autofocus>
+                        Front Left Tire (Q4): 
+                    </td>
+                    <td class="xYLocationTable_Col2">
+                        <select>
+                            <option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option><option value="H">H</option><option value="I">I</option><option value="J">J</option><option value="K">K</option><option value="L">L</option><option value="M">M</option><option value="N">N</option><option value="O">O</option><option value="P">P</option><option value="Q">Q</option><option value="R">R</option><option value="S">S</option><option value="T">T</option><option value="U">U</option><option value="X">X</option><option value="Y">Y</option><option value="Z">Z</option><option value="AA">AA</option><option value="AB">AB</option><option value="AC">AC</option><option value="AD">AD</option><option value="AE">AE</option><option value="AF">AF</option><option value="AG">AG</option><option value="AH">AH</option>
+                        </select>
+                        <select>
+                            <option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option><option value="21">21</option><option value="22">22</option><option value="23">23</option><option value="24">24</option><option value="25">25</option><option value="26">26</option><option value="27">27</option><option value="28">28</option><option value="29">29</option><option value="30">30</option><option value="31">31</option><option value="32">32</option>
+                        </select>
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                    <td class="xYLocationTable_Col1">
+                        Front Right Tire (Q1): 
+                    </td>
+                    <td class="xYLocationTable_Col2">
+                        <select>
+                             <option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option><option value="H">H</option><option value="I">I</option><option value="J">J</option><option value="K">K</option><option value="L">L</option><option value="M">M</option><option value="N">N</option><option value="O">O</option><option value="P">P</option><option value="Q">Q</option><option value="R">R</option><option value="S">S</option><option value="T">T</option><option value="U">U</option><option value="X">X</option><option value="Y">Y</option><option value="Z">Z</option><option value="AA">AA</option><option value="AB">AB</option><option value="AC">AC</option><option value="AD">AD</option><option value="AE">AE</option><option value="AF">AF</option><option value="AG">AG</option><option value="AH">AH</option>
+                        </select>
+                        <select>
+                            <option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option><option value="21">21</option><option value="22">22</option><option value="23">23</option><option value="24">24</option><option value="25">25</option><option value="26">26</option><option value="27">27</option><option value="28">28</option><option value="29">29</option><option value="30">30</option><option value="31">31</option><option value="32">32</option>
+                        </select>
+                    </td>
+                </tr>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                <tr>
+                    <td class="xYLocationTable_Col1">
+                        Back Left Tire (Q3): 
+                    </td>
+                    <td class="xYLocationTable_Col2">
+                        <select>
+                             <option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option><option value="H">H</option><option value="I">I</option><option value="J">J</option><option value="K">K</option><option value="L">L</option><option value="M">M</option><option value="N">N</option><option value="O">O</option><option value="P">P</option><option value="Q">Q</option><option value="R">R</option><option value="S">S</option><option value="T">T</option><option value="U">U</option><option value="X">X</option><option value="Y">Y</option><option value="Z">Z</option><option value="AA">AA</option><option value="AB">AB</option><option value="AC">AC</option><option value="AD">AD</option><option value="AE">AE</option><option value="AF">AF</option><option value="AG">AG</option><option value="AH">AH</option>
+                        </select>
+                        <select>
+                            <option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option><option value="21">21</option><option value="22">22</option><option value="23">23</option><option value="24">24</option><option value="25">25</option><option value="26">26</option><option value="27">27</option><option value="28">28</option><option value="29">29</option><option value="30">30</option><option value="31">31</option><option value="32">32</option>
+                        </select>
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                    <td class="xYLocationTable_Col1">
+                        Back Right Tire (Q2): 
+                    </td>
+                    <td class="xYLocationTable_Col2">
+                        <select>
+                             <option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option><option value="H">H</option><option value="I">I</option><option value="J">J</option><option value="K">K</option><option value="L">L</option><option value="M">M</option><option value="N">N</option><option value="O">O</option><option value="P">P</option><option value="Q">Q</option><option value="R">R</option><option value="S">S</option><option value="T">T</option><option value="U">U</option><option value="X">X</option><option value="Y">Y</option><option value="Z">Z</option><option value="AA">AA</option><option value="AB">AB</option><option value="AC">AC</option><option value="AD">AD</option><option value="AE">AE</option><option value="AF">AF</option><option value="AG">AG</option><option value="AH">AH</option>
+                        </select>
+                        <select>
+                            <option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option><option value="21">21</option><option value="22">22</option><option value="23">23</option><option value="24">24</option><option value="25">25</option><option value="26">26</option><option value="27">27</option><option value="28">28</option><option value="29">29</option><option value="30">30</option><option value="31">31</option><option value="32">32</option>
+                        </select>
+                    </td>
+                </tr>
+                </td>
+            </tr>
+            <tr>
+                <td class="xYSmallWarning" colspan="5">
+                    *Choose the closest to the center of the wheel
+                </td>
+            </tr>
+            <tr>
+                <td colspan="5">
+<!-- TODO- Maybe include an onclick in here that changes the cursor to a waiting
+ cursor: "cursor:wait" or "cursor: progress" ought to work -->
+                    <button id='btnUpdateWheelLocation' class='toolBarMainButton'>Update Results</button>
+                </td>
+            </tr>
+        </table>
+					<div class='quadInfo' id='quad4DistributionDetailsContainer'>
+					</div>
+					<div class='quadInfo rightQuads' id='quad1DistributionDetailsContainer'>
+					</div>
+				</div>
+				<!-- <div class='quadInfoHolder' id='quad3and2Holder'>
+					<div class='quadInfo' id='quad3DistributionDetailsContainer'>
+					</div>
+					<div class='quadInfo rightQuads' id='quad2DistributionDetailsContainer'>
+					</div>
+				</div> -->
+			</div>
+
+			<h3 id='cogInfoSection' class='detailedSectionTitle'>Center of Mass Information</h3>
+			<div id='detailedCOGInfoContainer'> 
+				<div class='quadInfoHolder topQuad' id='cogQuadHolder'>
+					<div id='cogSectionTitle'>Press Here to Start a Center of Mass Analysis</div>
+					<div id='scrollWrapper'>
+						<div id='chairWrapper'>
+						<div id='leftChairSection' class='chairSection'>
+							<div class='chairTitle'>Maximum Right Side Slope Tilt</div>
+							<div class='chairTopSpacer'>&nbsp;</div>
+							<div class='chairObjectWrapper'>
+								<div class='horzSpacer'></div>
+								<div id='rightChairHolder' class='chairObjectHolder'></div>
+								<div class='horzSpacer'></div>
+							</div>
+							<div class='chairInfo'>Info regarding right tilt (warnings?)</div>
+						</div>
+						<div id='rightChairSection' class='chairSection'>
+							<div class='chairTitle'>Maximum Left Side Slope Tilt</div>
+							<div class='chairTopSpacer'>&nbsp;</div>
+								<div class='chairObjectWrapper'>
+								<div class='horzSpacer'></div>
+								<div id='leftChairHolder' class='chairObjectHolder'></div>
+								<div class='horzSpacer'></div>
+							</div>							
+							<div class='chairInfo'>Info regarding left tilt (warnings?)</div>
+						</div>
+						<div id='backChairSection' class='chairSection'>
+							<div class='chairTitle'>Maximum Rearward Tilt</div>
+							<div class='chairTopSpacer'>&nbsp;</div>
+								<div class='chairObjectWrapper'>
+								<div class='horzSpacer'></div>
+								<div id='backChairHolder' class='chairObjectHolder'></div>
+								<div class='horzSpacer'></div>
+							</div>							
+							<div class='chairInfo'>Info regarding back tilt (warnings?)</div>
+						</div>
+					</div>
+					</div>
+					<div id='cogDisclosure'>* views facing the front of the wheelchair *</div>
+				</div>
+			</div>
+		</div>
+		</div>
+		<div id='footerBar'>
+			<div id='leftFooterContent'>
+				<div class='footerTitle'>THIS PROJECT WAS MADE POSSIBLE BY</div>
+				<div class='thanksName name'>Dr. Carmen DiGiovine - Guidance</div>
+				<div class='thanksName name'>Mark Rugsegger - Guidance</div>
+				<div class='thanksName name'>MMMP Clinicians - Guidance</div>
+				<div class='thanksName name'>Inter-Ion - Powder Coating</div>
+				<div class='thanksName name'>FE Deparment - Electronics</div>
+				<div class='thanksName name'>Wes (lastname) - Welding</div>
+			</div>
+			<div id='centerFooterContent'>
+				<div class='footerTitle'>DESIGNED FOR MMMP BY</div>
+				<div class='developerName name'>Ben Jelen - BME</div>
+				<div class='developerName name'>Jon King - ME</div>
+				<div class='developerName name'>Pete Papas - BME</div>
+				<div class='developerName name'>Ankit Prasad - BME</div>
+				<div class='developerName name'>Brandon Toms - ME</div>
+				<div class='developerName name'>OSU Graduates of Class 2013</div>
+			</div>
+			<div id='rightFooterContent'>
+				<div class='footerTitle'>WITH DEVELOPMENT HELP FROM</div>
+				<div class='developerTools name'>JQuery + JQueryUI</div>
+				<div class='developerTools name'>Web Socket Project</div>
+				<div class='developerTools name'>Arduino.cc</div>
+				<div class='developerTools name'>Stack Overflow</div>
+				<div class='developerTools name'>Git Hub</div>	
+			</div>
+		</div>
+	</body>
+</html>

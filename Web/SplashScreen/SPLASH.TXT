@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script>
+		console.log('javascript initiated');
+		function getAJAXObject () {
+			var xmlhttp;
+			if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+			  xmlhttp=new XMLHttpRequest();
+			}
+			else {// code for IE6, IE5
+			  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+			 }
+			 return xmlhttp;
+		}
+		function getTextBasedUI() {
+			console.log('getTextBasedUI called');
+			xmlhttp = getAJAXObject();
+			xmlhttp.onreadystatechange=function() {
+			  if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+			    document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
+			  }
+			}
+			xmlhttp.open('GET', 'JSTEST.TXT', true);
+			xmlhttp.send();
+		}
+		function getGraphicalUI() {
+			console.log('getGraphicalUI called');
+		}
+		//Loading bar Here
+	</script>
+	<style>
+		/*simple styling here*/
+	</style>
+</head>
+<body>
+	<div>Welcome to the Center Of Mass Scale Splash Screen</div>
+	<div>Please Select one of the following options to get started</div>
+	<button onclick='getTextBasedUI(this)'>Load the Text Based User Interface</button>
+	<button onclick='getGraphicalUI(this)'>Load the Graphically Rich User Interface</button>
+
+	<div>Why so slow? The arduino is serving up your requested web page. Although the arduino is an awesome little micro controller, it takes a few minutes to read the 10,000 lines of code from the on board SD Card and then send that data to your computer. The text based UI, although not nearly as cool, is just as effective as the graphical UI. If the graphical UI is taking too long to load, consider trying the text based UI out.</div>
+
+</br>
+</br>
+<div id='myDiv'>Status</div>
+
+</body>
+</html>

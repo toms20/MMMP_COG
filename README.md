@@ -9,4 +9,3 @@ This Project is hosted by The Ohio State University and satisfies the senior the
 
 What you will find here?
 -The main repository for everything code/application related to the MMMP Scale Project.
--A branch for each platform we are currently developing for, Android, iOS, Arduino and HTML5.

@@ -1,0 +1,30 @@
+####################################
+# Syntax Coloring Map
+####################################
+
+####################################
+# Datatypes
+####################################
+
+sLCD	KEYWORD1
+
+####################################
+# Methods and Functions
+####################################
+clear	KEYWORD2
+setScreenSize 	KEYWORD2
+setBoxCursor	KEYWORD2
+setUnderlineCursor	KEYWORD2
+placeCursor	KEYWORD2
+setBrightness	KEYWORD2
+moveCursorRightOne	KEYWORD2
+moveCursorLeftOne	KEYWORD2
+selectLine	KEYWORD2
+turnDisplayOn	KEYWORD2
+turnDisplayOff	KEYWORD2
+toggleSplash	KEYWORD2
+setSplash	KEYWORD2
+isScreenOn	KEYWORD2
+setBaudRate	KEYWORD2
+display	KEYWORD2
+scrollingMarquee	KEYWORD2

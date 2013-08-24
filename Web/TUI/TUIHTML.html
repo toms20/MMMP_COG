@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<link rel='stylesheet' href='TUICSSM.css'>
+	<script src='COMOBJ.js'></script>
+	<script src='TUIJS.js'></script>
+</head>
+
+<!-- &#10003; is a html safe check mark (replace &times; with it when a user inputs location data via the selectors) -->
+
+<body>
+	<div id='headerToolbarHolder'>
+		<div id='controlsScroller'>
+			<div id='scaleControls' class='controlsHolder'>
+				<button class='headerButton' id='btnConnect' onclick='btnConnect(this)'>Connect</button>
+				<button class='headerButton' onclick='btnTare(this)'>Tare</button>
+				<button class='headerButton' onclick='btnWeigh(this)'>Weigh</button>
+				<!-- <button class='headerButton' onclick='btnBeginCOM(this)'>Begin COM</button> -->
+				<button class='headerButton' onclick='btnHelp(this)'>Help</button>
+			</div>
+			<div id='scaleControls' class='controlsHolder'>
+
+			</div>
+		</div>
+	</div>
+	<div id='weightInfoHolder'>
+		<div>Total Weight</div>
+		<div class='barHolder'><span id='weightBarVal' class='barVal'><div id='weightTextval' class='valText'>225lb</div></span></div>
+		<div id='weightHorzHolder'>
+			<div style='float:left'>Min 20lb</div>
+			<div style='float:right'>Max 700lb</div>
+		</div>
+	</div>
+	<div id='loadCellInfoHolder'>
+		<div class='horzQHolder'>
+			<div id='q4Holder' class='qHolder'>
+				<div class='qTitle'>Front Left Corner (Q4)</div>
+				<div class='cellLoad'><div class='cellLoadTitle'>Cell Load:</div><div class='cellLoadBar barHolder'><span id='loadBarValQ4' class='barVal'><div class='valText' id='loadTextValQ4'>225lb</div></span></div></div>
+				<div class='wheelLoad'><div class='wheelLoadTitle'>Wheel Load:</div><div class='wheelLoadBar barHolder'><span id='wheelBarValQ4' class='barVal'><div class='valText' id='wheelTextValQ4'>225lb</div></span></div></div>
+				<div class='locationHolder'><table><td class="xYLocationTable_Col1">
+                        Front Left Tire (Q4): 
+                    </td>
+                    <td class="xYLocationTable_Col2">
+                        <select id='Q4PosLetter' class='selector'>
+                            <option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option><option value="H">H</option><option value="I">I</option><option value="J">J</option><option value="K">K</option><option value="L">L</option><option value="M">M</option><option value="N">N</option><option value="O">O</option><option value="P">P</option><option value="Q">Q</option><option value="R">R</option><option value="S">S</option><option value="T">T</option><option value="U">U</option><option value="X">X</option><option value="Y">Y</option><option value="Z">Z</option><option value="AA">AA</option><option value="AB">AB</option><option value="AC">AC</option><option value="AD">AD</option><option value="AE">AE</option><option value="AF">AF</option><option value="AG">AG</option><option value="AH">AH</option>
+                        </select>
+                        <select id='Q4PosLetter' class='selector'>
+                            <option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option><option value="21">21</option><option value="22">22</option><option value="23">23</option><option value="24">24</option><option value="25">25</option><option value="26">26</option><option value="27">27</option><option value="28">28</option><option value="29">29</option><option value="30">30</option><option value="31">31</option><option value="32">32</option>
+                        </select>
+                    </td><td id='q3LocationStatus' class='locationStatus'>&times;</td></table></div>
+			</div>
+			<div id='q1Holder' class='qHolder'>
+				<div class='qTitle'>Front Right Corner (Q1)</div>
+				<div class='cellLoad'><div class='cellLoadTitle'>Cell Load:</div><div class='cellLoadBar barHolder'><span id='loadBarValQ1' class='barVal'><div class='valText' id='loadTextValQ1'>225lb</div></span></div></div>
+				<div class='wheelLoad'><div class='wheelLoadTitle'>Wheel Load:</div><div class='wheelLoadBar barHolder'><span id='wheelBarValQ1' class='barVal'><div class='valText' id='wheelTextValQ1'>225lb</div></span></div></div>
+				<div class='locationHolder'><table><td class="xYLocationTable_Col1">
+                        Front Right Tire (Q1): 
+                    </td>
+                    <td class="xYLocationTable_Col2">
+                        <select id='Q1PosLetter' class='selector'>
+                            <option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option><option value="H">H</option><option value="I">I</option><option value="J">J</option><option value="K">K</option><option value="L">L</option><option value="M">M</option><option value="N">N</option><option value="O">O</option><option value="P">P</option><option value="Q">Q</option><option value="R">R</option><option value="S">S</option><option value="T">T</option><option value="U">U</option><option value="X">X</option><option value="Y">Y</option><option value="Z">Z</option><option value="AA">AA</option><option value="AB">AB</option><option value="AC">AC</option><option value="AD">AD</option><option value="AE">AE</option><option value="AF">AF</option><option value="AG">AG</option><option value="AH">AH</option>
+                        </select>
+                        <select id='Q1PosNumber' class='selector'>
+                            <option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option><option value="21">21</option><option value="22">22</option><option value="23">23</option><option value="24">24</option><option value="25">25</option><option value="26">26</option><option value="27">27</option><option value="28">28</option><option value="29">29</option><option value="30">30</option><option value="31">31</option><option value="32">32</option>
+                        </select>
+                    </td><td id='q3LocationStatus' class='locationStatus'>&times;</td></table></div>
+			</div>
+		</div>
+		<div class='horzQHolder'>
+			<div id='q3Holder' class='qHolder'>
+				<div class='qTitle'>Rear Left Corner (Q3)</div>
+				<div class='cellLoad'><div class='cellLoadTitle'>Cell Load:</div><div class='cellLoadBar barHolder'><span id='loadBarValQ3' class='barVal'><div class='valText' id='loadTextValQ3'>225lb</div></span></div></div>
+				<div class='wheelLoad'><div class='wheelLoadTitle'>Wheel Load:</div><div class='wheelLoadBar barHolder'><span id='wheelBarValQ3' class='barVal'><div class='valText' id='wheelTextValQ3'>225lb</div></span></div></div>
+				<div class='locationHolder'><table><td class="xYLocationTable_Col1">
+                        Rear Left Tire (Q3): 
+                    </td>
+                    <td class="xYLocationTable_Col2">
+                        <select id='Q2PosLetter' class='selector'>
+                            <option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option><option value="H">H</option><option value="I">I</option><option value="J">J</option><option value="K">K</option><option value="L">L</option><option value="M">M</option><option value="N">N</option><option value="O">O</option><option value="P">P</option><option value="Q">Q</option><option value="R">R</option><option value="S">S</option><option value="T">T</option><option value="U">U</option><option value="X">X</option><option value="Y">Y</option><option value="Z">Z</option><option value="AA">AA</option><option value="AB">AB</option><option value="AC">AC</option><option value="AD">AD</option><option value="AE">AE</option><option value="AF">AF</option><option value="AG">AG</option><option value="AH">AH</option>
+                        </select>
+                        <select id='Q2PosNumber' class='selector'>
+                            <option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option><option value="21">21</option><option value="22">22</option><option value="23">23</option><option value="24">24</option><option value="25">25</option><option value="26">26</option><option value="27">27</option><option value="28">28</option><option value="29">29</option><option value="30">30</option><option value="31">31</option><option value="32">32</option>
+                        </select>
+                    </td><td id='q3LocationStatus' class='locationStatus'>&times;</td></table></div>
+			</div>
+			<div id='q2Holder' class='qHolder'>
+				<div class='qTitle'>Rear Right Corner (Q2)</div>
+				<div class='cellLoad'><div class='cellLoadTitle'>Cell Load:</div><div class='cellLoadBar barHolder'><span id='loadBarValQ2' class='barVal'><div class='valText' id='loadTextValQ2'>225lb</div></span></div></div>
+				<div class='wheelLoad'><div class='wheelLoadTitle'>Wheel Load:</div><div class='wheelLoadBar barHolder'><span id='wheelBarValQ2' class='barVal'><div class='valText' id='wheelTextValQ2'>225lb</div></span></div></div>
+				<div class='locationHolder'><table><td class="xYLocationTable_Col1">
+                        Rear Right Tire (Q2): 
+                    </td>
+                    <td class="xYLocationTable_Col2">
+                        <select id='Q3PosLetter' class='selector'>
+                            <option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option><option value="H">H</option><option value="I">I</option><option value="J">J</option><option value="K">K</option><option value="L">L</option><option value="M">M</option><option value="N">N</option><option value="O">O</option><option value="P">P</option><option value="Q">Q</option><option value="R">R</option><option value="S">S</option><option value="T">T</option><option value="U">U</option><option value="X">X</option><option value="Y">Y</option><option value="Z">Z</option><option value="AA">AA</option><option value="AB">AB</option><option value="AC">AC</option><option value="AD">AD</option><option value="AE">AE</option><option value="AF">AF</option><option value="AG">AG</option><option value="AH">AH</option>
+                        </select>
+                        <select id='Q3PosNumber' class='selector'>
+                            <option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option><option value="21">21</option><option value="22">22</option><option value="23">23</option><option value="24">24</option><option value="25">25</option><option value="26">26</option><option value="27">27</option><option value="28">28</option><option value="29">29</option><option value="30">30</option><option value="31">31</option><option value="32">32</option>
+                        </select>
+                    </td><td id='q3LocationStatus' class='locationStatus'>&times;</td></table></div>
+			</div>
+		</div>
+	</div>
+	<div id='weightDistroInfoHolder' class='extraInfoHolder'>
+		<div class='distroInfo'><div class='distroTitle'>Front-To-Back Distribution</div>
+			<div class='distroBarHolder'><div class='distroBar barHolder'><span id='distroBarValFB' class='barVal'><div class='valText' id='distroTextValFB'>40:60</div></span></div></div>
+			<div id='weightHorzHolder'>
+			<div style='float:left'>Front</div>
+			<div style='float:right'>Back</div>
+		</div>
+		</div>
+		<div class='distroInfo'><div class='distroTitle'>Left-To-Right Distribution</div>
+			<div class='distroBarHolder'><div class='distroBar barHolder'><span id='distroBarValLR' class='barVal'><div class='valText' id='distroTextValLR'>51:49</div></span></div></div><div class='distroBar'></div>
+			<div id='weightHorzHolder'>
+			<div style='float:left'>Left</div>
+			<div style='float:right'>Right</div>
+		</div>
+		</div>
+	</div>
+	<div id='comInfoHolder' class='extraInfoHolder'>
+		<div class='comSection'>
+			<div class='comTitle'>Max Left Tilt</div>
+			<div class='comVal' id='comLeftTiltVal'>0&deg;</div>
+			<div class='comHealth' id='comLeftTiltHealth'>Healthy</div>
+		</div>
+		<div class='comSection'>
+			<div class='comTitle'>Max Right Tilt</div>
+			<div class='comVal' id='comLeftTiltVal'>0&deg;</div>
+			<div class='comHealth' id='comLeftTiltHealth'>Healthy</div>
+		</div>
+		<div class='comSection'>
+			<div class='comTitle'>Max Rear Tilt</div>
+			<div class='comVal' id='comLeftTiltVal'>0&deg;</div>
+			<div class='comHealth' id='comLeftTiltHealth'>Healthy</div>
+		</div>
+	</div>
+	<div id='consoleHolder'>
+
+	</div>
+</body>
+</html>

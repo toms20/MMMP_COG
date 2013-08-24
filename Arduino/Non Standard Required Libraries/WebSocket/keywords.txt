@@ -1,0 +1,21 @@
+####################################
+# Syntax Coloring Map
+####################################
+
+####################################
+# Datatypes
+####################################
+
+WebSocket	KEYWORD1
+
+####################################
+# Methods and Functions
+####################################
+registerConnectCallback	KEYWORD2
+registerDisconnectCallback	KEYWORD2
+registerDataCallback	KEYWORD2
+registerServeFileCallback	KEYWORD2
+begin	KEYWORD2
+listen	KEYWORD2
+send	KEYWORD2
+isConnected	KEYWORD2
