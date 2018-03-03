@@ -18,7 +18,7 @@ This GUI's purpose is to clearly display the following information to both the p
 
 Semi-Live Example
 -----------------
-[See it in action](http://mmmp.btcoding.com/playground/GUI/index.html)
+[See it in action](http://mmmp.btoms20.com/playground/GUI/index.html)
 
 
 Screen Shot
