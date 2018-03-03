@@ -17,13 +17,13 @@ This TUI's purpose is to clearly display the following information to both the p
 
 Semi-Live Example
 -----------------
-[See it in action](http://mmmp.btcoding.com/playground/TUI/index.html)
+[See it in action](http://mmmp.btoms20.com/playground/TUI/index.html)
 
 
 Screen Shot
 ---------------
 
-![screenshot](/screenshotMobile.png)
+![screenshot](./screenshotMobile.png)
 
 Samsung Galaxy template is by EJIK 
 
