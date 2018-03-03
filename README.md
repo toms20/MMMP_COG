@@ -9,4 +9,4 @@ This Project is hosted by The Ohio State University and satisfies the senior the
 
 This repository contains all the code related to the MMMP Scale Project.
 
-You can find the documentation [here](http://www.mmmp.btoms20.com/index.html).
+You can find the documentation [here](http://mmmp.btoms20.com/index.html).
