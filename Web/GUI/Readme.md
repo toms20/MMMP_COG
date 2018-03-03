@@ -24,5 +24,5 @@ Semi-Live Example
 Screen Shot
 ---------------
 
-![screenshot](/screenshot.png)
+![screenshot](./screenshot.png)
 
